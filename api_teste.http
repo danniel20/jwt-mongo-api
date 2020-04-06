@@ -1,0 +1,52 @@
+@baseUrl=http://localhost:3000
+
+POST {{baseUrl}}/register
+Content-Type: application/json
+
+{
+  "name": "Fulano",
+  "email": "fulano@teste.com",
+  "password": "123456"
+}
+
+###
+
+POST {{baseUrl}}/authenticate
+Content-Type: application/json
+
+{
+  "email": "fulano@teste.com",
+  "password": "1234"
+}
+
+###
+
+GET {{baseUrl}}/projects
+Content-Type: application/json
+Authorization: Bearer <token>
+
+{
+  "email": "fulano@teste.com",
+  "password": "1234"
+}
+
+###
+
+POST {{baseUrl}}/forgot_password
+Content-Type: application/json
+
+{
+  "email": "fulano@teste.com"
+}
+
+###
+
+POST {{baseUrl}}/reset_password
+Content-Type: application/json
+
+{
+  "email": "fulano@teste.com",
+  "token": "<token_received_to_reset>",
+  "password": "1234"
+}
+

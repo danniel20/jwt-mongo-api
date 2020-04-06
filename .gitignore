@@ -1,0 +1,5 @@
+node_modules/
+data/*
+.env
+src/config/mail.json
+!data/.gitkeep
