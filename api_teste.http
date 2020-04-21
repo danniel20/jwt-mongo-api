@@ -21,17 +21,6 @@ Content-Type: application/json
 
 ###
 
-GET {{baseUrl}}/projects
-Content-Type: application/json
-Authorization: Bearer <token>
-
-{
-  "email": "fulano@teste.com",
-  "password": "1234"
-}
-
-###
-
 POST {{baseUrl}}/forgot_password
 Content-Type: application/json
 
@@ -50,3 +39,61 @@ Content-Type: application/json
   "password": "1234"
 }
 
+###
+
+GET {{baseUrl}}/projects
+Content-Type: application/json
+Authorization: Bearer <token>
+
+###
+
+POST {{baseUrl}}/projects
+Content-Type: application/json
+Authorization: Bearer <token>
+
+{
+ "title": "Novo projeto",
+ "description": "descrição do projeto",
+ "tasks": [
+   {
+     "title": "Nova tarefa",
+     "assignedTo": "<user_id>"
+   },
+   {
+     "title": "Nova tarefa 2",
+     "assignedTo": "<user_id>"
+   }
+ ]
+}
+
+###
+
+GET {{baseUrl}}/projects/<project_id>
+Content-Type: application/json
+Authorization: Bearer <token>
+
+###
+
+PUT {{baseUrl}}/projects/<project_id>
+Content-Type: application/json
+Authorization: Bearer <token>
+
+{
+  "tasks":
+    [
+      {
+        "completed":true,
+        "title":"Tarefa atualizada",
+        "assignedTo":"<user_id>",
+        "project":"<project_id>"
+      }
+    ],
+  "title":"Projeto atualizado",
+  "description":"descrição do projeto atualizado"
+}
+
+###
+
+DELETE {{baseUrl}}/projects/<project_id>
+Content-Type: application/json
+Authorization: Bearer <token>
