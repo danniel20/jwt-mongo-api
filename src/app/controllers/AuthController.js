@@ -5,7 +5,7 @@ const crypto = require('crypto')
 const mailer = require('../../modules/mailer')
 require('dotenv').config()
 
-const mailConfig = require('../config/mail.json')
+const mailConfig = require('../../config/mail.json')
 
 module.exports = {
   
@@ -91,7 +91,6 @@ module.exports = {
         context: { token }
       }, (err, info) => {
         if(err){
-          console.log(err)
           return res.status(400).json({error: 'Cannot send forgot password email'})
         }
 
@@ -128,7 +127,6 @@ module.exports = {
       res.sendStatus(200)
     }
     catch(err){
-      console.log(err)
       res.status(400).json({error: 'Cannot reset password, try again'})
     }
   }
