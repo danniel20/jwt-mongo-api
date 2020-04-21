@@ -3,7 +3,7 @@ const { Router } = require('express')
 const authMiddleware = require('./app/middlewares/auth')
 
 const AuthController = require('./app/controllers/AuthController')
-const ProjetsController = require('./app/controllers/ProjectsController')
+const ProjectsController = require('./app/controllers/ProjectsController')
 
 const router = Router()
 
@@ -14,6 +14,13 @@ router.post('/reset_password', AuthController.resetPassword)
 
 router.route('/projects')
   .all(authMiddleware.authenticate())
-  .get(ProjetsController.index)
+  .get(ProjectsController.index)
+  .post(ProjectsController.create)
+  
+router.route('/projects/:id')
+  .all(authMiddleware.authenticate())
+  .get(ProjectsController.show)
+  .put(ProjectsController.update)
+  .delete(ProjectsController.delete)
 
 module.exports = router
