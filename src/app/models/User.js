@@ -43,7 +43,7 @@ UserSchema.pre('save', function(next){
 })
 
 UserSchema.pre('updateOne', function() {
-  this.set({ updatedAt: new Date() });
+  this.set({ updatedAt: new Date() })
 })
 
 const User = mongoose.model('User', UserSchema)
