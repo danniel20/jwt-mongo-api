@@ -75,7 +75,7 @@ module.exports = {
   async delete(req, res){
     try{
       await Project.findByIdAndRemove(req.params.id)
-      res.sendStatus(200)
+      res.sendStatus(204)
     }
     catch(err){
       res.status(400).json({error: "Error deleting project"})
